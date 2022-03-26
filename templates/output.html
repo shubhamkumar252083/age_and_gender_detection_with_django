@@ -9,9 +9,16 @@
 </head>
 
 <body>
-  <h1>Gender is {{data.gender}}</h1>
-  <h1>Age is in between {{data.age}}</h1>
-  <img src="{{data.path}}" alt="">
+
+  {% if data %}
+  {% for item in data %}
+  <h1>{{item}}</h1>
+  {% endfor %}
+  <img src="{{path}}" alt="">
+  {% else %}
+  <h1>Not a human image</h1>
+  <img src="{{path}}" alt="">
+  {% endif %}
 </body>
 
 </html>
