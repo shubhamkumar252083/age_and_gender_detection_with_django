@@ -110,6 +110,8 @@ def get_age_predictions(face_img):
 
 
 def predict_age_and_gender(input_path: str):
+    #
+    image_data = []
     x = input_path.rfind("/")
     y = input_path.rfind(".")
     new_image_name_and_path = "media/output_image/" + \
@@ -142,9 +144,10 @@ def predict_age_and_gender(input_path: str):
         label = f"{gender}-{gender_confidence_score*100:.1f}%, {age}-{age_confidence_score*100:.1f}%"
         # label = "{}-{:.2f}%".format(gender, gender_confidence_score*100)
         print(label)
-        Image_data = {"gender": f"{gender}-{gender_confidence_score*100:.1f}%",
-                      "age": f"{age}-{age_confidence_score*100:.1f}%",
-                      "path": new_image_name_and_path}
+        data = {"gender": f"{gender}-{gender_confidence_score*100:.1f}%",
+                "age": f"{age}-{age_confidence_score*100:.1f}%",
+                }
+        image_data.append(data)
         yPos = start_y - 15
         while yPos < 15:
             yPos += 15
@@ -158,12 +161,16 @@ def predict_age_and_gender(input_path: str):
     cv2.imwrite(new_image_name_and_path, frame)
     # Cleanup
     cv2.destroyAllWindows()
-    return Image_data
+
+    return {"image_data": image_data, "path": new_image_name_and_path}
 
 
 '''
-input_path = "/home/shubham/Desktop/Gender_Age_prediction/1.jpg"
+input_path = "/home/shubham/Desktop/Gender_Age_prediction/demo_img/Screenshot from 2022-03-26 13-19-39.png"
 x = predict_age_and_gender(input_path)
+# x = {'image_data': [{'gender': 'Male-77.7%', 'age': '(25, 32)-97.9%'}, {'gender': 'Male-99.9%', 'age': '(25, 32)-83.3%'}, {'gender': 'Female-100.0%', 'age': '(25, 32)-100.0%'}], 'path': 'media/output_image/tt-output.jpg'}
 
+# for non image-->
+# x = {'image_data': [], 'path': 'media/output_image/Screenshot from 2022-02-24 14-11-36-output.jpg'}
 print(f"x = {x}")
 '''
