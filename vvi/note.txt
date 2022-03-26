@@ -1,0 +1,14 @@
+gender_net.caffemodel: It is the pre-trained model pre-trained_models_and_architecture for gender detection. 
+
+
+deploy_gender.prototxt: is the model architecture for the gender detection model (a plain text file with a JSON-like structure containing all the neural network layer’s definitions). 
+
+
+
+res10_300x300_ssd_iter_140000_fp16.caffemodel: The pre-trained model pre-trained_models_and_architecture for face detection, 
+
+
+
+deploy.prototxt.txt: This is the model architecture for the face detection model, 
+
+==>pre-trained_models_and_architecture == weights 
