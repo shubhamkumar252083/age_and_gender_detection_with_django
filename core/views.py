@@ -24,10 +24,3 @@ def index(request):
         return render(request, "output.html", context)
     else:
         return render(request, "index.html")
-
-
-# x = predict_age_and_gender(input_path)
-# x = {'image_data': [{'gender': 'Male-77.7%', 'age': '(25, 32)-97.9%'}, {'gender': 'Male-99.9%', 'age': '(25, 32)-83.3%'}, {'gender': 'Female-100.0%', 'age': '(25, 32)-100.0%'}], 'path': 'media/output_image/tt-output.jpg'}
-
-# for non image-->
-# x = {'image_data': [], 'path': 'media/output_image/Screenshot from 2022-02-24 14-11-36-output.jpg'}
